@@ -1,0 +1,55 @@
+{
+
+  "manifest_version": 2,
+  "name": "MacCtrl Key Tab Switcher",
+  "version": "1.1",
+
+  "description": "Sets the Next Tab hotkey to Ctrl+l and the Previous Tab hotkey to Ctrl+h on Mac.",
+
+  "developer": {
+    "name": "Adam Sommer",
+    "url": "https://thehoick.com"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "mkts@thehoick.com"
+    }
+  },
+
+  "icons": {
+    "48": "icon.png",
+    "96": "icon@2x.png"
+  },
+
+  "permissions": [
+    "tabs",
+    "notifications"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["atc.js"]
+    }
+  ],
+
+  "commands": {
+    "next-tab": {
+      "suggested_key": {
+        "default": "MacCtrl+L"
+      },
+      "description": "Sets the next tab as active."
+    },
+    "prev-tab": {
+      "suggested_key": {
+        "default": "MacCtrl+H"
+      },
+      "description": "Sets the previous tab as active."
+    }
+  }
+}
